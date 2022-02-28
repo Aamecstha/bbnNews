@@ -1,0 +1,16 @@
+<div class="container bg-secondary d-flex flex-wrap justify-content-between">
+<div class="col-5 p-2 my-2 shadow-lg bg-white">
+<ul>
+    <li *ngFor="let news of newsList">{{news}}</li>
+    
+</ul>
+</div>
+<div class="col-5 p-2 my-2 shadow-lg bg-white">
+    <input type="text" placeholder="enter news title here...." (input)="setNewNews($event)">
+    <button (click)="addNews()">Add News</button>
+</div>
+</div>
+
+<app-material-table></app-material-table>
+<app-user-login></app-user-login>
+<app-user-login-reactive></app-user-login-reactive>

@@ -1,0 +1,9 @@
+<p>pipe-intro works!</p>
+<input type="text" [(ngModel)]="filterQuery" placeholder="enter min age to display">
+<ul>
+    <li *ngFor="let data of userData | filterAge:filterQuery:'age'">
+        <span>{{data.name | uppercase | shorten:2}}</span>
+        <span>{{data.age | number:'1.1-5'}}</span>
+        <span>{{data.birthDate | date}}</span>
+    </li>
+</ul>

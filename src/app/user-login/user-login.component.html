@@ -1,0 +1,49 @@
+<p>user-login works!</p>
+<div class="col-md-6 bg-secondary p-3 m-2">
+    <form (ngSubmit)="submitForm(f)" #f="ngForm">
+        <div id="user-data" ngModelGroup="userData" #userData="ngModelGroup">
+            <div class="form-group">
+                <label for="username">User Name</label>
+                <input type="text" class="form-control" id="username" ngModel name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Mail</label>
+                <input type="email" class="form-control" id="email" ngModel name="email" required email
+                    #email="ngModel">
+                <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid email</span>
+            </div>
+        </div>
+        <span *ngIf="!userData.valid && userData.touched">User Data is invalid..</span>
+        <div class="form-group">
+            <label for="secret">Secret Questions</label>
+            <select id="secret" class="form-control" [ngModel]="'pet'" name="secretQues">
+                <option value="pet">Your first pet?</option>
+                <option value="teacher">Your first teacher?</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <textarea name="questionAnswer" rows="3" [(ngModel)]="answer"></textarea>          
+        </div>
+        <p>your reply: {{answer}}</p>
+        <div class="radio" *ngFor="let gender of genders">
+            <label>
+                <input type="radio" name="gender" ngModel [value]="gender">{{gender}}
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+    </form>
+    <hr>
+    <div class="col-md-4 p-2 bg-secondary" *ngIf="submitted">
+        <h1>User Details</h1>
+        <p>{{user.username}}</p>
+        <p>{{user.email}}</p>
+        <p>{{user.secretQues}}</p>
+        <p>{{user.questionAnswer}}</p>
+        <p>{{user.gender}}</p>
+    </div>
+</div>
+
+
+
+
+

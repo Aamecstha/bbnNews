@@ -1,0 +1,10 @@
+
+<h1>{{userName}}</h1>
+<button class="btn btn-success" (click)="subscribe()">Subscribe To BBC News</button>
+<div class="col-10 m-2 p-2 bg-secondary text-white" *ngIf="subscribedToNews" >
+    news here
+    <ul>
+        <li *ngFor="let news of newsList">{{news}}</li>
+    </ul>
+</div>
+

@@ -1,0 +1,14 @@
+
+<div class="bg-secondary" style="width:500px;padding:10px;margin:10px">
+        <input type="text" placeholder="instant magic happen here" [(ngModel)]="name">
+        <input type="text" placeholder="click button to send value" id="damn">
+        <p>input using passing event</p>
+        <input type="text" (input)="setServerName($event)">
+        <p>server name:{{server_name}}</p>
+        <button (click)="setName('amit')" class="btn btn-success">change Naam</button>
+        <p>using button click</p>
+        <p>{{name}}</p>
+        <p>{{getRandomNo()}}</p>
+        <button class="btn btn-warning" (click)="subscribe()">Subscribe</button>
+    </div>
+
