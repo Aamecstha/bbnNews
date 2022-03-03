@@ -1,0 +1,16 @@
+<div class="col-md-6 m-auto shadow-lg p-2">
+    <form #tweetForm="ngForm" (ngSubmit)="submitData(tweetForm)">
+        <div class="alert alert-success" *ngIf="tweeted">
+            <p>your tweet is tweeted</p>
+        </div>
+        <div class="form-group m-2">
+            <label for="name" class="form-control" >User Name</label>
+            <input type="text" class="form-control" id="name" ngModel name="userName" required>
+        </div>
+        <div class="form-group m-2">
+            <label for="tweet" class="form-control">Tweet</label>
+            <input type="text" class="form-control" id="tweet" ngModel name="tweet" required>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!tweetForm.valid">Tweet</button>
+    </form>
+</div>>

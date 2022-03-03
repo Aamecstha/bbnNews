@@ -1,1 +1,26 @@
-<p>auth works!</p>
+<div class="row">
+    <div class="col-xs-12 col-md-6 m-auto">
+        <div class="alert alert-danger" *ngIf="error">
+            <p>{{error}}</p>
+        </div>
+        <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+        <form #authForm="ngForm" (ngSubmit)="submitForm(authForm)" *ngIf="!isLoading">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" class="form-control" ngModel name="email" #email="ngModel" required email>
+                <span style="color:red" *ngIf="email.invalid && email.touched">Invalid Email</span>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" class="form-control" ngModel name="password" #password="ngModel" required minlength="6">
+                <span style="color:red" *ngIf="password.invalid && password.touched">Password length must be more than 6 characters</span>
+            </div>
+            <div >
+                <button class="btn btn-primary m-2" [disabled]="!authForm.valid">{{isLoginMode ? 'Log In' : 'Sign Up'}}</button>
+            </div>
+            <div>
+                <button class="btn btn-primary m-2" (click)="switchMode()" type="button">Switch To {{isLoginMode?'Sign Up':'Log In'}}</button>
+            </div>
+        </form>
+    </div>
+</div>

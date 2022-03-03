@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SubscriberCountService } from '../subscriber-count.service';
+import { SubscriberCountService } from '../services/subscriber-count.service';
 
 @Component({
   selector: 'app-damn',

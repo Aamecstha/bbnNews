@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {HttpClientModule, HTTP_INTERCEPTORS} from "@angular/common/http"
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +22,11 @@ import { PipeIntroComponent } from './pipe-intro/pipe-intro.component';
 import { ShortenPipe} from "./pipes/shorten.pipe"
 import { FilterAgePipe } from './pipes/filter-age.pipe';
 import { AuthComponent } from './auth/auth.component'
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+import { TweeterComponent } from './tweeter/tweeter.component';
+import { AuthInterceptorService } from './auth-interceptor.service';
+import { PlayerComponent } from './player/player.component';
+import { PlayersComponent } from './players/players.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +42,10 @@ import { AuthComponent } from './auth/auth.component'
     ShortenPipe,
     FilterAgePipe,
     AuthComponent,
+    LoadingSpinnerComponent,
+    TweeterComponent,
+    PlayerComponent,
+    PlayersComponent
   ],
   imports: [
     BrowserModule,
@@ -44,9 +54,10 @@ import { AuthComponent } from './auth/auth.component'
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatTableModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptorService,multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

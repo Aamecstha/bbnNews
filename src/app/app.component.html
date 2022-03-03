@@ -1,7 +1,14 @@
 <header style="background-color:#BB1919;height:100px;padding:10px;color:white">
-  <h1 class="text-center" routerLink="">BBC NEWS</h1>
-  <h4 routerLink="/user-subscriptions" style="float:right;margin:5px">subscription</h4>
-  <h4 routerLink="/pipe-intro" style="float:right;margin:5px">Pipe</h4>
+  <h1 class="text-center" routerLink="/">BBC NEWS</h1>
+  <ul>
+    <li (click)="OnLogOut()" style="float:right;margin:5px" *ngIf="isAuthenticated"><a>Log Out</a></li>
+  <li routerLink="/user-subscriptions" routerLinkActive="router-active" style="float:right;margin:5px" *ngIf="isAuthenticated"><a>subscription</a></li>
+  <li routerLink="/tweet" routerLinkActive="router-active" style="float:right;margin:5px" *ngIf="isAuthenticated"><a>Tweet</a></li>
+  <li routerLinkActive="router-active" style="float:right;margin:5px"><a routerLink="pipe-intro">Pipe</a></li>
+  <li routerLinkActive="router-active" style="float:right;margin:5px"><a routerLink="players" [queryParams]="{token:'123fsd3',names:'heisenberg'}">Players</a></li>
+  <li routerLinkActive="router-active" style="float:right;margin:5px" *ngIf="!isAuthenticated"><a routerLink="login">Login</a></li>
+  </ul>
+  
 </header>
 <!-- <p>Subscriber Count:{{subscriberCount}}</p>
 <div class="container d-flex flex-wrap">

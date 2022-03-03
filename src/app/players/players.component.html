@@ -1,0 +1,11 @@
+<div class="d-flex flex-wrap">
+    <div class="col-md-3 p-2 m-2 shadow-lg">
+        <a *ngFor="let player of players,let i=index" [routerLink]="['/players',player.name,player.power]" class="form-control btn btn-secondary m-2">{{player.name}}</a>
+        <!-- <button *ngFor="let player of players,let i=index" (click)="showHeroProfile(player.name)" class="form-control btn btn-secondary m-2">{{player.name}}</button> -->
+        <a routerLink="/players/login" class="form-control btn btn-primary">Login</a>
+    </div>
+    <div class="col-md-5 p-2 m-2">
+        <router-outlet></router-outlet>
+    </div>
+    
+</div>
