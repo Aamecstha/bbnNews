@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { authResponseData, authService } from './auth.service';
+import { OwnAuthService } from './own-auth.service';
 
 @Component({
   selector: 'app-auth',
@@ -14,7 +15,7 @@ export class AuthComponent implements OnInit {
   isLoading = false;
   error = null;
 
-  constructor(private auth: authService,private router:Router) {}
+  constructor(private auth: authService,private router:Router,private ownAuth:OwnAuthService) {}
 
   ngOnInit(): void {}
 

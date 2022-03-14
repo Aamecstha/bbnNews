@@ -7,3 +7,6 @@ ul{
 a{
     text-decoration: none;
 }
+.hand-pointer{
+    cursor: pointer;
+}

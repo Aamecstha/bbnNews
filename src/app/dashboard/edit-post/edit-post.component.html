@@ -1,0 +1,9 @@
+<div class="container-fluid d-flex ">
+    <div class="card m-2" style="width: 18rem;" *ngFor="let news of newsList">
+        <img class="card-img-top" src={{news.imageUrl}} alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{news.title | slice:0:30}}</h5>
+          <a [routerLink]="['../edit-post',news._id]" class="btn btn-primary">Edit</a>
+        </div>
+    </div>
+</div>

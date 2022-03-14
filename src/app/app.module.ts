@@ -25,8 +25,17 @@ import { AuthComponent } from './auth/auth.component'
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { TweeterComponent } from './tweeter/tweeter.component';
 import { AuthInterceptorService } from './auth-interceptor.service';
-import { PlayerComponent } from './player/player.component';
+import { PlayerComponent } from './players/player/player.component';
 import { PlayersComponent } from './players/players.component';
+import { UpdatedBBCComponent } from './updated-bbc/updated-bbc.component';
+import { NewsUploaderComponent } from './news-uploader/news-uploader.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { EditProfileComponent } from './dashboard/edit-profile/edit-profile.component';
+import { EditPostComponent } from './dashboard/edit-post/edit-post.component';
+import { EditPostFormComponent } from './dashboard/edit-post-form/edit-post-form.component';
+import { ToastrModule } from 'ngx-toastr';
+import { DeletePostComponent } from './dashboard/delete-post/delete-post.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +54,15 @@ import { PlayersComponent } from './players/players.component';
     LoadingSpinnerComponent,
     TweeterComponent,
     PlayerComponent,
-    PlayersComponent
+    PlayersComponent,
+    UpdatedBBCComponent,
+    NewsUploaderComponent,
+    NotFoundComponent,
+    DashboardComponent,
+    EditProfileComponent,
+    EditPostComponent,
+    EditPostFormComponent,
+    DeletePostComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +72,8 @@ import { PlayersComponent } from './players/players.component';
     BrowserAnimationsModule,
     MatTableModule,
     MatCheckboxModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot()
   ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptorService,multi:true}],
   bootstrap: [AppComponent]
