@@ -20,14 +20,14 @@ export class UserComponent implements OnInit {
   }
 
   subscribe(){
-    this.newsList=this.newService.getNews()
-    this.newService.getNewsListener().subscribe(
-      news=>{
-        this.newsList=news
-        console.log(this.newsList)
-      }
-    )
-    this.subscribedToNews=true
+    // this.newsList=this.newService.getNews()
+    // this.newService.getNewsListener().subscribe(
+    //   news=>{
+    //     this.newsList=news
+    //     console.log(this.newsList)
+    //   }
+    // )
+    // this.subscribedToNews=true
   }
 
 }

@@ -1,33 +1,39 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Router } from '@angular/router';
+import { map, Subject,tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BbcNewsService {
-  news:string[]=[]
-  newsUpdated=new Subject<string[]>()
 
-  constructor(private http:HttpClient){
-
-  }
+  constructor(private http:HttpClient,private router:Router){}
 
   getNews(){
-    return [...this.news]
+    return this.http.get(`https://bbc-news-32944-default-rtdb.asia-southeast1.firebasedatabase.app/news.json`)
+    .pipe(
+      map(data=>{
+        let dataArray=[]
+        for(let key in data){
+          dataArray.push(data[key])
+        }
+        return dataArray
+      })
+    )
   }
 
-  getNewsListener(){
-    return this.newsUpdated
-  }
-
-  setNews(newNews:string){
-    this.news.push(newNews)
-    this.newsUpdated.next([...this.news])
-  }
-
-  getNewsFromBackend(){
-    return this.http.get(`http://localhost:420/news`)
+  postNews(newsData){
+    this.http.post(`https://bbc-news-32944-default-rtdb.asia-southeast1.firebasedatabase.app/news.json`,newsData)
+    .subscribe(
+      resData=>{
+        console.log(resData)
+        this.router.navigate(['/home'])
+      },
+      err=>{
+        console.log("error",err)
+      }
+    )
   }
   
 }

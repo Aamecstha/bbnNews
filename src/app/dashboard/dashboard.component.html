@@ -2,14 +2,14 @@
     <h2>Dashboard</h2>
 </div>
 <div class="container-fluid d-flex p-0">
-    <div class="col-md-2 bg-primary">
+    <div class="col-md-2 col-4 bg-primary" style="min-height:500px;">
         <ul>
             <li routerLink="edit-profile"><h5 class="text-center">Edit Profile</h5></li>
             <li routerLink="edit-post"><h5 class="text-center">Edit Posts</h5></li>
             <li routerLink="delete-post"><h5 class="text-center">Delete Posts</h5></li>
         </ul>
     </div>
-    <div class="col-md-10 p-3" style="background-color:#D0E2EE">
+    <div class="container-fluid p-3" style="background-color:#242C40">
         <router-outlet></router-outlet>
     </div>
 </div>

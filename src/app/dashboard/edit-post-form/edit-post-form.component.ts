@@ -56,7 +56,8 @@ export class EditPostFormComponent implements OnInit {
         this.toastr.success("Post Edit successfull","damn",{timeOut:3000})
       },
       error=>{
-        console.log("Error: ",error)
+        console.log("Error: ",error.error.message)
+        this.toastr.error("Post Edit Failed","Failed",{timeOut:3000})
       }
     )
   }

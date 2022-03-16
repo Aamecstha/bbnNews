@@ -1,14 +1,15 @@
+
 .component-title{
-    background-color: #1D5C87;
+    background-color:#584B7D;
     color:white;
     border-bottom: 1px solid black;
 }
 ul{
     list-style-type:none;
-    background-color: #1D5C87;
+    background-color:#584B7D;
     margin:0px;
     padding:0px;
-    min-height:500px;
+    height:100%;
     cursor: pointer;
 }
 ul li{

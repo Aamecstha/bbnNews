@@ -7,25 +7,19 @@ import { BbcNewsService } from './bbc-news.service';
   styleUrls: ['./bbc-news.component.css']
 })
 export class BbcNewsComponent implements OnInit {
-  newsList:string[]=[]
-  newNews:string=''
+  newsList=[]
 
-  constructor(private newsService:BbcNewsService) { }
+  constructor(private bbcService:BbcNewsService) { }
 
   ngOnInit(): void {
-    this.newsList=this.newsService.getNews()
-    this.newsService.getNewsListener().subscribe(
+    this.bbcService.getNews()
+    .subscribe(
       (news)=>{
+        console.log(news)
         this.newsList=news
+        
       }
     )
-  }
-
-  addNews(){
-    this.newsService.setNews(this.newNews)
-  }
-  setNewNews(event:Event){
-    this.newNews=(<HTMLInputElement>event.target).value
   }
 
 }

@@ -38,7 +38,7 @@ export class DeletePostComponent implements OnInit {
         })
       },
       errorMsg=>{
-        console.log("errorMsg")
+        console.log("errorMsg:",errorMsg.error.message)
         this.toastr.error("Post Delete failed","Delete",{timeOut:3000})
       }
     )

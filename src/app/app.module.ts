@@ -36,6 +36,7 @@ import { EditPostComponent } from './dashboard/edit-post/edit-post.component';
 import { EditPostFormComponent } from './dashboard/edit-post-form/edit-post-form.component';
 import { ToastrModule } from 'ngx-toastr';
 import { DeletePostComponent } from './dashboard/delete-post/delete-post.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,7 +63,8 @@ import { DeletePostComponent } from './dashboard/delete-post/delete-post.compone
     EditProfileComponent,
     EditPostComponent,
     EditPostFormComponent,
-    DeletePostComponent
+    DeletePostComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,

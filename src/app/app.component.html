@@ -1,16 +1,4 @@
-<header style="background-color:#BB1919;height:100px;padding:10px;color:white">
-  <h1 class="text-center" routerLink="/">BBC NEWS</h1>
-  <ul>
-    <li (click)="OnLogOut()" class="hand-pointer" style="float:right;margin:5px" *ngIf="isAuthenticated"><a>Log Out</a></li>
-  <li routerLink="/user-subscriptions" routerLinkActive="router-active" class="hand-pointer" style="float:right;margin:5px" *ngIf="isAuthenticated"><a>subscription</a></li>
-  <li routerLink="/tweet" routerLinkActive="router-active" class="hand-pointer" style="float:right;margin:5px" *ngIf="isAuthenticated"><a>Tweet</a></li>
-  <li routerLink="/upload-news" routerLinkActive="router-active" class="hand-pointer" style="float:right;margin:5px" *ngIf="isAuthenticated"><a>Upload News</a></li>
-  <li routerLink="/dashboard" routerLinkActive="router-active" class="hand-pointer" style="float:right;margin:5px" *ngIf="isAuthenticated"><a>Dashboard</a></li>
-  <li routerLinkActive="router-active" class="hand-pointer" style="float:right;margin:5px"><a routerLink="players" [queryParams]="{token:'123fsd3',names:'heisenberg'}">Players</a></li>
-  <li routerLinkActive="router-active" class="hand-pointer" style="float:right;margin:5px" *ngIf="!isAuthenticated"><a routerLink="login">Login</a></li>
-  </ul>
-  
-</header>
+<app-nav-bar [isUserAuthenticated]="isAuthenticated" (doLogOut)="OnLogOut()"></app-nav-bar>
 <!-- <p>Subscriber Count:{{subscriberCount}}</p>
 <div class="container d-flex flex-wrap">
   <app-damn></app-damn>

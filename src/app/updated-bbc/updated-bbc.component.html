@@ -1,11 +1,11 @@
-<div class="container">
-    <div class="row">
-        <div class="card m-2" style="width: 18rem;" *ngFor="let news of newsList">
+<div class="container d-flex flex-wrap ">
+  <div class="col-md-3 col-10 mx-auto mx-sm-1" *ngFor="let news of newsList">
+        <div class="card m-2">
             <img class="card-img-top" src={{news.imageUrl}} alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">{{news.title}}</h5>
               <p class="card-text">{{news.description | slice:0:150}}</p>
             </div>
           </div>
-    </div>
-</div>>
+        </div>
+</div>
